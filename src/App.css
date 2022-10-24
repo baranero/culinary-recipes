@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.whole-page {
+  display: grid;
+  grid-template-columns: 20vh auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header {
+  display: flex;
+  flex-direction: column;
+  width: 20vh;
+  height: 100vh;
+  background-color: rgb(69, 151, 223);
+  color: white;
+  box-shadow: 1px 1px 22px 0 gray;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+
+}
+
+nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 24px;
+}
+
+span {
+  display: flex;
+
+  word-wrap: normal;
+  width: 120px;
+  text-align: center;
+  padding: 5px;
+  height: 40px;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.logo-part {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(69, 151, 223);
+  margin: 150px;
+  box-shadow: 1px 1px 22px 0 gray;
+}
+
+.recipe-text {
+  margin-bottom: 30px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.recipe-input {
+  padding: 15px;
+  width: 50vh;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 1px 1px 10px 0 gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recipe-input:focus {
+  border: none;
+  outline: 0;
+}
+
+.recipe-button {
+  margin-top: 30px;
+  padding: 20px;
+  width: 300px;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 10px 0 gray;
+  background: gray);
 }
