@@ -6,6 +6,8 @@
 .whole-page {
   display: grid;
   grid-template-columns: 20vh auto;
+  background-image: url("..//public/images/background.jpg");
+  background-size: cover;
 }
 
 header {
@@ -13,8 +15,8 @@ header {
   flex-direction: column;
   width: 20vh;
   height: 100vh;
-  background-color: rgb(69, 151, 223);
-  color: white;
+  background-color: rgba(184, 177, 156, 0.5);
+  color: rgb(0, 0, 0);
   box-shadow: 1px 1px 22px 0 gray;
 }
 
@@ -62,29 +64,41 @@ span {
   padding: 20px;
   align-items: center;
   justify-content: center;
-  background-color: rgb(69, 151, 223);
+  background-color: rgba(193, 186, 176, 0.8);
   margin: 150px;
   box-shadow: 1px 1px 22px 0 gray;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .recipe-text {
   margin-bottom: 30px;
-  color: white;
+  color: rgb(0, 0, 0);
+
 }
 
 .recipe-input {
   padding: 15px;
+  margin: 10px 0;
   width: 50vh;
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 0.03em;
   border-radius: 15px;
   border: none;
   box-shadow: 1px 1px 10px 0 gray;
+
 }
 
 .recipe-input:focus {
   border: none;
   outline: 0;
+
 }
 
 .recipe-button {
@@ -97,4 +111,46 @@ span {
   border: none;
   box-shadow: 1px 1px 10px 0 gray;
   background: gray);
+}
+
+.rendered-recipe {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: gainsboro;
+  padding: 20px;
+  margin: 20px;
+}
+
+.rendered-recipe-title {
+margin: 10px;
+color: rgb(0, 0, 0);
+}
+
+.rendered-recipe-content {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  
+}
+
+.rendered-recipe-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.rendered-recipe-ingredients-list {
+display: flex;
+flex-direction: column;
+padding: 10px;
+align-items: flex-start;
+}
+
+
+.rendered-recipe-ingredients-name {
+
+}
+
+.rendered-recipe-ingredients-description {
+  margin: 10px;
+  text-align: left;
 }
