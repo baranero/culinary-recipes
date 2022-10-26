@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/culinary-recipes/static/css/main.65ace008.css",
+    "main.js": "/culinary-recipes/static/js/main.1e0187fd.js",
+    "static/js/787.58452c34.chunk.js": "/culinary-recipes/static/js/787.58452c34.chunk.js",
+    "static/media/background.jpg": "/culinary-recipes/static/media/background.55c0f67dec4371e21498.jpg",
+    "index.html": "/culinary-recipes/index.html",
+    "main.65ace008.css.map": "/culinary-recipes/static/css/main.65ace008.css.map",
+    "main.1e0187fd.js.map": "/culinary-recipes/static/js/main.1e0187fd.js.map",
+    "787.58452c34.chunk.js.map": "/culinary-recipes/static/js/787.58452c34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65ace008.css",
+    "static/js/main.1e0187fd.js"
+  ]
+}
