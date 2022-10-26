@@ -94,7 +94,7 @@ export default function Recipes() {
                             <div key={data.id} className="rendered-recipe-ingredients-list">
                                 <h4>Used ingredients</h4>
                                 {data.usedIngredients && data.usedIngredients.map((data) => (
-                                    <ul><li  className="rendered-recipe-ingredients-description">{data.original}</li></ul>
+                                    <ul key={data.id}><li className="rendered-recipe-ingredients-description">{data.original}</li></ul>
                                 
                                 ))}
                             </div>

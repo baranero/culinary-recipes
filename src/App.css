@@ -1,6 +1,7 @@
 * {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
 .whole-page {
@@ -13,7 +14,7 @@
 header {
   display: flex;
   flex-direction: column;
-  width: 20vh;
+  width: 200px;
   height: 100vh;
   background-color: rgba(184, 177, 156, 0.5);
   color: rgb(0, 0, 0);
@@ -33,16 +34,26 @@ nav {
   line-height: 24px;
 }
 
-span {
+.navbar-button {
   display: flex;
-
-  word-wrap: normal;
-  width: 120px;
+  border: none;
+  width: 100%;
   text-align: center;
-  padding: 5px;
+  padding: 25px;
   height: 40px;
   align-items: center;
   justify-content: center;
+  background-color: rgba(184, 177, 156, 0);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar-button:hover {
+  background-color: rgb(193, 182, 148);
+}
+
+.navbar-button:active {
+  color: white;
 }
 
 .logo-part {
@@ -67,6 +78,7 @@ span {
   background-color: rgba(193, 186, 176, 0.8);
   margin: 150px;
   box-shadow: 1px 1px 22px 0 gray;
+  max-width: 80%;
 }
 
 form {
@@ -153,4 +165,67 @@ align-items: flex-start;
 .rendered-recipe-ingredients-description {
   margin: 10px;
   text-align: left;
+}
+
+.rendered-substitutes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.rendered-subs-content {
+  display: flex;
+  line-height: 25px;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .whole-page {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  header {
+    height: 10%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
+
+  .logo-part {
+    flex-direction: row;
+    padding: 0;
+    margin: 5px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .navbar {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .recipe-container {
+    margin: auto;
+
+    width: 90%;
+    display: flex;
+  }
+
+  .navbar-button {
+    padding: 15px;
+
+  }
+
+  .recipe-input {
+    width: 170%;
+    
+  }
 }

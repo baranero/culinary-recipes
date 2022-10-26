@@ -10,11 +10,10 @@ export default function Navbar(props) {
                 <h1>Eat IT</h1>
             </div>
             <nav className="navbar">
-                <span onClick={props.recipeRender}>Recipes</span>
-  
-                <span>Ingredients</span>
-                <span>Meal plan</span>
-                <span onClick={props.signinRender}>Sign in</span>
+                <button className="navbar-button" onClick={props.recipeRender}>Recipes</button>
+                <button className="navbar-button" onClick={props.ingredientsRender}>Ingredients</button>
+                <button className="navbar-button">Meal plan</button>
+                <button className="navbar-button" onClick={props.signinRender}>Sign in</button>
             </nav>
         </header>
     )
