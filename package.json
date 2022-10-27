@@ -2,7 +2,6 @@
   "homepage": "https://baranero.github.io/culinary-recipes",
   "name": "culinary-recipes",
   "version": "0.1.0",
-  "homepage": "https://baranero.github.io/culinary-recipes",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -15,8 +14,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
