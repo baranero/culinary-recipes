@@ -1,19 +1,23 @@
 import React from "react";
 
-export default function SignInForm(props) {
+export default function MealPlan(props) {
 
-        const [userData, setUserData] = React.useState(
+        const [mealplanData, setMealplanData] = React.useState(
             {
-                username: "",
-                firstName: "",
-                lastName: "",
-                email: ""
+                timeFrame: "",
+                calories: "",
+                diet: "",
+                exclude: ""
             })
 
-            console.log(userData);
+            const formatedIngredient = mealplanData.exclude
+            .replaceAll(',', "%2C")
+            .replaceAll(' ', '%20')
+
+            console.log(mealplanData);
     
         function handleChange(event) {
-            setUserData(prevSate => {
+            setMealplanData(prevSate => {
                 const {name, value} = event.target
                 return {
                     ...prevSate,
@@ -25,22 +29,21 @@ export default function SignInForm(props) {
         }
     
         const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
-                'X-RapidAHost': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-            },
-            body: `{"username":${userData.username},firstName":${userData.firstName},"lastName":${userData.lastName},"email":${userData.email}}`
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
+            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+          }
         };
+        
     
-        const [data, setData] = React.useState(null)
+        const [data, setData] = React.useState()
         const [error, setError] = React.useState(null)
         const [show, setShow] = React.useState(false)
     
         React.useEffect(() => {
             if (show === true) {
-                fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/users/connect', options)
+                fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=${mealplanData.timeFrame}&targetCalories=${mealplanData.calories}&diet=${mealplanData.diet}&exclude=${mealplanData.exclude}`, options)
                     .then((response) => {
                         if (!response.ok) {
                             throw new Error(
@@ -49,7 +52,7 @@ export default function SignInForm(props) {
                         return response.json()
                     })
                     .then((actualData) => {
-                        setData(actualData)
+                        setData([actualData])
                         setError(null)
                         console.log(actualData);
                     })
@@ -62,69 +65,65 @@ export default function SignInForm(props) {
         return (
             <div className="recipe-container">
                 <button onClick={props.show} className="end-button">x</button>
-                <h2 className="recipe-text">Sign in</h2>
+                <h2 className="recipe-text">Meal plan</h2>
                 <form onSubmit={handleSubmit}>
                     <input
-                        placeholder="Username"
+                        placeholder="Time frame (day or week)"
                         className="recipe-input"
                         type="text"
                         onChange={handleChange}
-                        name="username"
-                        value={userData.username}
+                        name="timeFrame"
+                        value={mealplanData.timeFrame}
                     />
                     <input
-                        placeholder="First name"
+                        placeholder="Calories"
                         className="recipe-input"
                         type="text"
                         onChange={handleChange}
-                        name="firstName"
-                        value={userData.firstName}
+                        name="calories"
+                        value={mealplanData.calories}
                     />
                     <input
-                        placeholder="Last name"
+                        placeholder="Diet"
                         className="recipe-input"
                         type="text"
                         onChange={handleChange}
-                        name="lastName"
-                        value={userData.lastName}
+                        name="diet"
+                        value={mealplanData.diet}
                     />
                     <input
-                        placeholder="Email"
+                        placeholder="Exclude"
                         className="recipe-input"
-                        type="email"
+                        type="text"
                         onChange={handleChange}
-                        name="email"
-                        value={userData.email}
+                        name="exclude"
+                        value={mealplanData.exclude}
                     />
                 </form>
-                <button className="recipe-button" onClick={() => setShow(true)}>Sign in</button>
+                <button className="recipe-button" onClick={() => setShow(true)}>Get your plan!</button>
                 <div>
                 {error && (
                     <div>
                         {`There is a problem fetching the post data - ${error}`}
                     </div>
                 )}
-                {data && data.map((data) => (  
-                    <div className="rendered-recipe" key={data.id}>
+                {data && data.map((data) => (
+                    <div>
+                    {data.meals && data.meals.map((data) => (
+<div className="rendered-recipe" key={data.id}>
                         <h3 className="rendered-recipe-title">{data.title}</h3>
                         <div className="rendered-recipe-content">
                             <img className="rendered-recipe-image" src={data.image} alt={data.title}/>
                             <div>
                                 <div key={data.id} className="rendered-recipe-ingredients-list">
-                                    <h4>Used ingredients</h4>
-                                    {data.usedIngredients && data.usedIngredients.map((data) => (
-                                        <ul key={data.id}><li className="rendered-recipe-ingredients-description">{data.original}</li></ul>
-                                    
-                                    ))}
-                                </div>
-                                <div  className="rendered-recipe-ingredients-list">
-                                    <h4>Missed ingredients</h4>
-                                    {data.missedIngredients && data.missedIngredients.map((datas) => (
-                                        <ul key={datas.id}><li  className="rendered-recipe-ingredients-description">{datas.original}</li></ul>
-                                    ))}
+                                    <p>Ready in: {data.readyInMinutes}</p>
+                                    <p>Servings: {data.servings}</p>
+                                    <p><a href={data.sourceUrl}>Check it!</a></p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    ))} 
                     </div>
                 ))}
                 </div>

@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Recipes() {
+export default function Recipes(props) {
 
     const [ingredientsData, setIngredientsData] = React.useState(
         {
@@ -49,7 +49,6 @@ export default function Recipes() {
                 .then((actualData) => {
                     setData(actualData)
                     setError(null)
-                    console.log(actualData);
                 })
                 .catch((err) => {
                     setError(err.message)
@@ -59,10 +58,11 @@ export default function Recipes() {
 
     return (
         <div className="recipe-container">
-            <h2 className="recipe-text">Get your recipes by ingredients</h2>
+            <button onClick={props.show} className="end-button">x</button>
+            <h2 className="recipe-text">Get your recipes</h2>
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Input your ingredients, if you input a few, separate them with comma"
+                    placeholder="Ingredients (separate them with comma)"
                     className="recipe-input"
                     type="text"
                     onChange={handleChange}
@@ -70,7 +70,7 @@ export default function Recipes() {
                     value={ingredientsData.ingredient}
                 />
                 <input
-                    placeholder="Enter the number of dishes you want to receive"
+                    placeholder="Number of dishes"
                     className="recipe-input"
                     type="text"
                     onChange={handleChange}
@@ -88,6 +88,7 @@ export default function Recipes() {
             {data && data.map((data) => (  
                 <div className="rendered-recipe" key={data.id}>
                     <h3 className="rendered-recipe-title">{data.title}</h3>
+                    <hr/>
                     <div className="rendered-recipe-content">
                         <img className="rendered-recipe-image" src={data.image} alt={data.title}/>
                         <div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Ingredients() {
+export default function Ingredients(props) {
 
     const [ingredientsSubstitutes, setIngredientsSubstitutes] = React.useState(
         {
@@ -44,7 +44,6 @@ export default function Ingredients() {
                 .then((actualData) => {
                     setData(Array(actualData))
                     setError(null)
-                    console.log(actualData);
                 })
                 .catch((err) => {
                     setError(err.message)
@@ -56,10 +55,11 @@ export default function Ingredients() {
 
     return (
         <div className="recipe-container">
-            <h2 className="recipe-text">Get your ingredients substitutes</h2>
+            <button onClick={props.show} className="end-button">x</button>
+            <h2 className="recipe-text">Ingredients substitutes</h2>
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Input your ONE ingredient"
+                    placeholder="Input ONE ingredient"
                     className="recipe-input"
                     type="text"
                     onChange={handleChange}
@@ -67,7 +67,7 @@ export default function Ingredients() {
                     value={ingredientsSubstitutes.ingredient}
                 />
             </form>
-            <button className="recipe-button" onClick={() => setShow(true)}>Find your ingredients substitute!</button>
+            <button className="recipe-button" onClick={() => setShow(true)}>Find your substitutes!</button>
             <div>
             {error && (
                 <div>
@@ -81,9 +81,9 @@ export default function Ingredients() {
      <div className="rendered-recipe-ingredients-list">
          <h4>Substitutes</h4>
          {data.substitutes && data.substitutes.map((data) => (
-             <div key={data}>
-                 {data}
-             </div>
+             <ul key={data}>
+                 <li>{data}</li>
+             </ul>
          ))}
      </div>
  </div>

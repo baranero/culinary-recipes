@@ -1,28 +1,52 @@
 * {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
-.whole-page {
-  display: grid;
-  grid-template-columns: 20vh auto;
+html {
+  height: 100%;
+  width: 100%;
   background-image: url("..//public/images/background.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+
+  margin-left: 200px;
+}
+
+.whole-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  
 }
 
 header {
   display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
   flex-direction: column;
   width: 200px;
-  height: 100vh;
   background-color: rgba(184, 177, 156, 0.5);
   color: rgb(0, 0, 0);
   box-shadow: 1px 1px 22px 0 gray;
 }
 
 h1 {
-
+  letter-spacing: 0.1em;
 }
 
 nav {
@@ -37,6 +61,7 @@ nav {
 .navbar-button {
   display: flex;
   border: none;
+
   width: 100%;
   text-align: center;
   padding: 25px;
@@ -44,7 +69,7 @@ nav {
   align-items: center;
   justify-content: center;
   background-color: rgba(184, 177, 156, 0);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -69,16 +94,46 @@ nav {
   margin-bottom: 10px;
 }
 
+.pic-authors {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0px;
+  left: 0px;
+  margin: 0 5px 30px 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+
+}
+
 .recipe-container {
   display: flex;
+  position: relative;
+  margin: 50px;
   flex-direction: column;
-  padding: 20px;
+  padding: 50px;
   align-items: center;
   justify-content: center;
   background-color: rgba(193, 186, 176, 0.8);
-  margin: 150px;
   box-shadow: 1px 1px 22px 0 gray;
-  max-width: 80%;
+  width: 100&;
+  border-radius: 20px;
+}
+
+.end-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: gray;
+  opacity: 0.8;
+  padding: 0 0 1px 0;
+  border-radius: 100%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  box-shadow: 1px 1px 5px 1px gray;
 }
 
 form {
@@ -122,7 +177,6 @@ form {
   border-radius: 40px;
   border: none;
   box-shadow: 1px 1px 10px 0 gray;
-  background: gray);
 }
 
 .rendered-recipe {
@@ -132,14 +186,16 @@ form {
   background-color: gainsboro;
   padding: 20px;
   margin: 20px;
+  border-radius: 10px;
 }
 
 .rendered-recipe-title {
-margin: 10px;
+margin: 10px 0 10px 0;
 color: rgb(0, 0, 0);
 }
 
 .rendered-recipe-content {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 2fr 3fr;
   
@@ -150,11 +206,16 @@ color: rgb(0, 0, 0);
   object-fit: cover;
 }
 
+ul {
+  padding: 0 0 0 10px;
+}
+
 .rendered-recipe-ingredients-list {
 display: flex;
 flex-direction: column;
 padding: 10px;
 align-items: flex-start;
+margin-left: 20px;
 }
 
 
@@ -171,7 +232,10 @@ align-items: flex-start;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: gainsboro;
+  padding: 20px;
   margin: 20px;
+  border-radius: 10px;
 }
 
 .rendered-subs-content {
@@ -179,36 +243,94 @@ align-items: flex-start;
   line-height: 25px;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
-  .whole-page {
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html {
     display: flex;
-    position: absolute;
-    flex-direction: column;
     height: 100%;
     width: 100%;
   }
 
-  header {
-    height: 10%;
+  body {
+    display: flex;
+    margin: 0;
+    height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-columns: 25% 75%;
+  }
+
+  .whole-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+  }
+
+  .rendered-recipe {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recipe-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 70px;
+  }
+
+  header {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .logo-part {
     flex-direction: row;
     padding: 0;
+    width: 140px;
     margin: 5px;
   }
 
+  .hamburger-menu {
+    display: flex;
+    margin-right: 30px;
+    height: 50px;
+  }
+
+  .pic-authors {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -50%;
+  }
+
   h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .navbar {
-
+    
     display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
