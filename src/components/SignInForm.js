@@ -56,9 +56,18 @@ export default function SignInForm(props) {
                     .catch((err) => {
                         setError(err.message)
                         setData(null)
+                        signalWrongPassword()
                     })
                 }}, [show])
-    
+
+                function signalWrongPassword() {
+                    for (let i = 0; i < 4; i++) {
+                    let wrongData = document.getElementsByClassName("recipe-input")[i];
+                    if (true){
+                      wrongData.classList.toggle("recipe-input-error")
+                    }}
+                  }
+
         return (
             <div className="recipe-container">
                 <button onClick={props.show} className="end-button">x</button>

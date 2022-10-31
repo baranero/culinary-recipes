@@ -112,15 +112,13 @@ export default function MealPlan(props) {
                     {data.meals && data.meals.map((data) => (
 <div className="rendered-recipe" key={data.id}>
                         <h3 className="rendered-recipe-title">{data.title}</h3>
-                        <div className="rendered-recipe-content">
-                            <img className="rendered-recipe-image" src={data.image} alt={data.title}/>
-                            <div>
+                        <div key={data.id} className="rendered-mealplan-content">
+
                                 <div key={data.id} className="rendered-recipe-ingredients-list">
-                                    <p>Ready in: {data.readyInMinutes}</p>
+                                    <p>Ready in: {data.readyInMinutes} minutes</p>
                                     <p>Servings: {data.servings}</p>
-                                    <p><a href={data.sourceUrl}>Check it!</a></p>
+                                    <h4><a href={data.sourceUrl} target="_blank" >Check meal plan!</a></h4>
                                 </div>
-                            </div>
                         </div>
                     </div>
                     ))} 
