@@ -31,7 +31,7 @@ export default function MealPlan(props) {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
+            'X-RapidAPI-Key': 'xxx',
             'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
           }
         };
