@@ -19,21 +19,13 @@ export default function Ingredients(props) {
         event.preventDefault()
     }
 
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-        }
-    };
-
-    const [data, setData] = React.useState()
+    const [data, setData] = React.useState(null)
     const [error, setError] = React.useState(null)
     const [show, setShow] = React.useState(false)
 
     React.useEffect(() => {
         if (show === true) {
-            fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/ingredients/substitutes?ingredientName=${ingredientsSubstitutes.ingredient}`, options)
+            fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error(
@@ -42,7 +34,7 @@ export default function Ingredients(props) {
                     return response.json()
                 })
                 .then((actualData) => {
-                    setData(Array(actualData))
+                    setData(actualData.meals)
                     setError(null)
                 })
                 .catch((err) => {
@@ -56,39 +48,36 @@ export default function Ingredients(props) {
     return (
         <div className="recipe-container">
             <button onClick={props.show} className="end-button">x</button>
-            <h2 className="recipe-text">Ingredients substitutes</h2>
+            <h2 className="recipe-text">Random meal</h2>
             <form onSubmit={handleSubmit}>
-                <input
-                    placeholder="Input ONE ingredient"
-                    className="recipe-input"
-                    type="text"
-                    onChange={handleChange}
-                    name="ingredient"
-                    value={ingredientsSubstitutes.ingredient}
-                />
             </form>
-            <button className="recipe-button" onClick={() => setShow(true)}>Find your substitutes!</button>
+            <button className="recipe-button" onClick={() => setShow(true)}>Find your meal!</button>
             <div>
             {error && (
                 <div>
                     {`There is a problem fetching the post data - ${error}`}
                 </div>
             )}
-             {data && data.map((data) => (
- <div key={data.ingredient} className="rendered-substitutes">
- <h3 className="rendered-recipe-title"> {data.ingredient.toUpperCase()}</h3>
- <div className="rendered-subs-content">
-     <div className="rendered-recipe-ingredients-list">
-         <h4>Substitutes</h4>
-         {data.substitutes && data.substitutes.map((data) => (
-             <ul key={data}>
-                 <li>{data}</li>
-             </ul>
-         ))}
-     </div>
- </div>
-</div>
-             ))}
+            {data && data.map((data) => (  
+                            
+                <div  key={data.idMeal}>
+                    {console.log(data)}
+                <div className="rendered-recipe">
+                <h2>{data.strMeal}</h2>
+                <div className="rendered-recipe-content">
+                    <img className="rendered-recipe-image" src={data.strMealThumb} />
+                    <ul>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient1}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient2}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient3}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient4}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient5}</li>
+                    </ul>
+                </div>
+                <p>{data.strInstructions}</p>
+                
+                </div></div>
+            ))}
                
             
             </div>

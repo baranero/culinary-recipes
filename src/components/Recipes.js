@@ -1,11 +1,11 @@
+import { logDOM } from "@testing-library/react"
 import React from "react"
 
 export default function Recipes(props) {
 
     const [ingredientsData, setIngredientsData] = React.useState(
         {
-            ingredient: "",
-            numberOfDishes: ""
+            ingredient: ""
         })
 
     const formatedIngredient = ingredientsData.ingredient
@@ -18,19 +18,11 @@ export default function Recipes(props) {
             return {
                 ...prevSate,
                 [name]: value,
-                [name.numberOfDishes]: value
         }})}
 
     function handleSubmit(event) {
         event.preventDefault()
     }
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
-            'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-        }}
 
     const [data, setData] = React.useState(null)
     const [error, setError] = React.useState(null)
@@ -38,7 +30,7 @@ export default function Recipes(props) {
 
     React.useEffect(() => {
         if (show === true) {
-            fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${formatedIngredient}&number=${ingredientsData.numberOfDishes}`, options)
+            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${formatedIngredient}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error(
@@ -47,7 +39,7 @@ export default function Recipes(props) {
                     return response.json()
                 })
                 .then((actualData) => {
-                    setData(actualData)
+                    setData(actualData.meals)
                     setError(null)
                 })
                 .catch((err) => {
@@ -59,23 +51,15 @@ export default function Recipes(props) {
     return (
         <div className="recipe-container">
             <button onClick={props.show} className="end-button">x</button>
-            <h2 className="recipe-text">Get your recipes</h2>
+            <h2 className="recipe-text">Get your recipes by name</h2>
             <form onSubmit={handleSubmit}>
                 <input
-                    placeholder="Ingredients (separate them with comma)"
+                    placeholder="Name of meal"
                     className="recipe-input"
                     type="text"
                     onChange={handleChange}
                     name="ingredient"
                     value={ingredientsData.ingredient}
-                />
-                <input
-                    placeholder="Number of dishes"
-                    className="recipe-input"
-                    type="text"
-                    onChange={handleChange}
-                    name="numberOfDishes"
-                    value={ingredientsData.numberOfDishes}
                 />
             </form>
             <button className="recipe-button" onClick={() => setShow(true)}>Find your meal!</button>
@@ -86,28 +70,22 @@ export default function Recipes(props) {
                 </div>
             )}
             {data && data.map((data) => (  
-                <div className="rendered-recipe" key={data.id}>
-                    <h3 className="rendered-recipe-title">{data.title}</h3>
-                    <hr/>
-                    <div className="rendered-recipe-content">
-                        <img className="rendered-recipe-image" src={data.image} alt={data.title}/>
-                        <div>
-                            <div key={data.id} className="rendered-recipe-ingredients-list">
-                                <h4>Used ingredients</h4>
-                                {data.usedIngredients && data.usedIngredients.map((data) => (
-                                    <ul key={data.id}><li className="rendered-recipe-ingredients-description">{data.original}</li></ul>
-                                
-                                ))}
-                            </div>
-                            <div  className="rendered-recipe-ingredients-list">
-                                <h4>Missed ingredients</h4>
-                                {data.missedIngredients && data.missedIngredients.map((datas) => (
-                                    <ul key={datas.id}><li  className="rendered-recipe-ingredients-description">{datas.original}</li></ul>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                <div key={data.idMeal}>
+                <div className="rendered-recipe">
+                <h2>{data.strMeal}</h2>
+                <div className="rendered-recipe-content">
+                    <img className="rendered-recipe-image" src={data.strMealThumb} />
+                    <ul>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient1}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient2}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient3}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient4}</li>
+                        <li className="rendered-recipe-ingredients-description">{data.strIngredient5}</li>
+                    </ul>
                 </div>
+                <p>{data.strInstructions}</p>
+                
+                </div></div>
             ))}
             </div>
         </div>

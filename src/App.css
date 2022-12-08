@@ -59,6 +59,13 @@ nav {
   line-height: 24px;
 }
 
+p {
+  line-height: 1.75rem;
+  font-size: 1.5rem;
+  text-align: justify;
+  margin-top: 20px;
+}
+
 .navbar-button {
   display: flex;
   border: none;
@@ -230,7 +237,7 @@ color: rgb(0, 0, 0);
 }
 
 .rendered-recipe-content {
-  margin-top: 10px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 2fr 3fr;
   align-items: center;
@@ -240,10 +247,12 @@ color: rgb(0, 0, 0);
   width: 100%;
   object-fit: cover;
   align-items: center;
+  border-radius: 5%;
 }
 
 ul {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 50px;
+  font-size: 1.5rem;
 }
 
 .rendered-mealplan-content {
