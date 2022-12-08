@@ -28,7 +28,7 @@ export default function SignInForm(props) {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '12a9202e9dmsh5c4193899cbb79bp102b03jsn7b9e88a3ddbf',
+                'X-RapidAPI-Key': 'xxx',
                 'X-RapidAHost': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
             },
             body: `{"username":${userData.username},firstName":${userData.firstName},"lastName":${userData.lastName},"email":${userData.email}}`
