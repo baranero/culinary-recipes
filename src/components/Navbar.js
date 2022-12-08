@@ -11,7 +11,7 @@ export default function Navbar(props) {
             </div>
             <nav className="navbar">
                 <button className="navbar-button" onClick={props.recipeRender}>Recipes</button>
-                <button className="navbar-button" onClick={props.ingredientsRender}>Ingredients</button>
+                <button className="navbar-button" onClick={props.ingredientsRender}>Random recipe</button>
                 <button className="navbar-button" onClick={props.mealplanRender}>Meal plan</button>
                 <button className="navbar-button" onClick={props.signinRender}>Sign in</button>
             </nav>
