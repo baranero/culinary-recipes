@@ -3,6 +3,10 @@ import React from "react";
 
 export default function Navbar(props) {
 
+    function showHamburgeMenuList() {
+        
+    }
+
     return (
         <header>
             <div className="logo-part">
@@ -16,7 +20,7 @@ export default function Navbar(props) {
                 <button className="navbar-button" onClick={props.signinRender}>Sign in</button>
             </nav>
             <div className="hamburger-menu">
-                <img src={process.env.PUBLIC_URL + '/images/hamburger.png'} />
+                <img onClick={showHamburgeMenuList} src={process.env.PUBLIC_URL + '/images/hamburger.png'} />
             </div>
         </header>
     )

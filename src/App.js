@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
 
-  const [isShownRecipes, setIsShownRecipes] = React.useState(true)
+  const [isShownRecipes, setIsShownRecipes] = React.useState(false)
   const [isShownSignin, setIsShownSignin] = React.useState(false)
   const [isShownIngredients, setIsShownIngredients] = React.useState(false)
   const [isShownMealplan, setIsShownMealplan] = React.useState(false)

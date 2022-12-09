@@ -19,6 +19,13 @@ export default function Ingredients(props) {
         event.preventDefault()
     }
 
+    const generateMeal = () => {
+        setShow(true)
+        setTimeout(() => {
+            setShow(false)
+        }, 0)
+    }
+
     const [data, setData] = React.useState(null)
     const [error, setError] = React.useState(null)
     const [show, setShow] = React.useState(false)
@@ -51,7 +58,7 @@ export default function Ingredients(props) {
             <h2 className="recipe-text">Random meal</h2>
             <form onSubmit={handleSubmit}>
             </form>
-            <button className="recipe-button" onClick={() => setShow(true)}>Find your meal!</button>
+            <button className="recipe-button" onClick={generateMeal}>Find your meal!</button>
             <div>
             {error && (
                 <div>
