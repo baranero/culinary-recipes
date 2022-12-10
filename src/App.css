@@ -50,13 +50,9 @@ h1 {
   letter-spacing: 0.1em;
 }
 
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  line-height: 24px;
+h3 {
+  padding: 5px 0;
+  font-weight: 400 ;
 }
 
 p {
@@ -66,41 +62,9 @@ p {
   margin-top: 20px;
 }
 
-.navbar-button {
-  display: flex;
-  border: none;
 
-  width: 100%;
-  text-align: center;
-  padding: 25px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(184, 177, 156, 0);
-  font-size: 20px;
-  font-weight: 600;
-}
 
-.navbar-button:hover {
-  background-color: rgb(193, 182, 148);
-}
 
-.navbar-button:active {
-  color: white;
-}
-
-.logo-part {
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  height: 80px;
-  margin-bottom: 10px;
-}
 
 .pic-authors {
   display: flex;
@@ -117,142 +81,6 @@ a {
   text-decoration: none;
   color: black;
 
-}
-
-.recipe-container {
-  display: flex;
-  position: relative;
-  margin: 50px;
-  flex-direction: column;
-  padding: 50px;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(193, 186, 176, 0.8);
-  box-shadow: 1px 1px 22px 0 gray;
-  width: 100&;
-  border-radius: 20px;
-}
-
-.end-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: gray;
-  opacity: 0.8;
-  padding: 0 0 1px 0;
-  border-radius: 100%;
-  border: none;
-  width: 20px;
-  height: 20px;
-  box-shadow: 1px 1px 5px 1px gray;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.recipe-text {
-  margin-bottom: 30px;
-  color: rgb(0, 0, 0);
-
-}
-
-.recipe-input {
-  padding: 15px;
-  margin: 10px 0;
-  width: 50vh;
-  font-size: 13px;
-  letter-spacing: 0.03em;
-  border-radius: 15px;
-  border: none;
-  box-shadow: 1px 1px 10px 0 gray;
-}
-
-.recipe-input:focus {
-  border: none;
-  outline: 0;
-}
-
-.recipe-input-error {
-  padding: 15px;
-  margin: 10px 0;
-  width: 50vh;
-  font-size: 13px;
-  letter-spacing: 0.03em;
-  border-radius: 15px;
-  border: none;
-  box-shadow: 1px 1px 10px 0 gray;
-  border: 1px solid red;
-  animation: shake 0.8s;
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
-.recipe-button {
-  margin-top: 30px;
-  padding: 20px;
-  width: 300px;
-  font-weight: 700;
-  font-size: 20px;
-  border-radius: 40px;
-  border: none;
-  box-shadow: 1px 1px 10px 0 gray;
-}
-
-.rendered-recipe {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: gainsboro;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  justify-content: center;
-  width: 100%;
-}
-
-.rendered-recipe-title {
-margin: 10px 0 10px 0;
-color: rgb(0, 0, 0);
-}
-
-.rendered-recipe-content {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  align-items: center;
-}
-
-.rendered-recipe-image {
-  width: 100%;
-  object-fit: cover;
-  align-items: center;
-  border-radius: 5%;
-}
-
-ul {
-  padding: 0 0 0 50px;
-  font-size: 1.5rem;
 }
 
 .rendered-mealplan-content {
@@ -281,10 +109,7 @@ a {
 
 }
 
-.rendered-recipe-ingredients-description {
-  margin: 10px;
-  text-align: left;
-}
+
 
 .rendered-substitutes {
   display: flex;
@@ -301,9 +126,7 @@ a {
   line-height: 25px;
 }
 
-.hamburger-menu {
-  display: none;
-}
+
 
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
@@ -335,20 +158,9 @@ a {
     position: relative;
   }
 
-  .rendered-recipe {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .recipe-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 70px;
-  }
+
+
 
   header {
     height: 100px;
@@ -361,18 +173,7 @@ a {
     align-items: center;
   }
 
-  .logo-part {
-    flex-direction: row;
-    padding: 0;
-    width: 140px;
-    margin: 5px;
-  }
 
-  .hamburger-menu {
-    display: flex;
-    margin-right: 30px;
-    height: 50px;
-  }
 
   .pic-authors {
     position: absolute;
@@ -385,13 +186,6 @@ a {
     font-size: 20px;
   }
 
-  .navbar {
-    
-    display: grid;
-    display: none;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
   .recipe-container {
     margin: auto;
 
@@ -399,10 +193,7 @@ a {
     display: flex;
   }
 
-  .navbar-button {
-    padding: 15px;
 
-  }
 
   .recipe-input {
     width: 170%;

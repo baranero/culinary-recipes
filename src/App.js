@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 function App() {
 
   const [isShownRecipes, setIsShownRecipes] = React.useState(false)
-  const [isShownSignin, setIsShownSignin] = React.useState(false)
+  const [isShownSignin, setIsShownSignin] = React.useState(true)
   const [isShownIngredients, setIsShownIngredients] = React.useState(false)
   const [isShownMealplan, setIsShownMealplan] = React.useState(false)
 
@@ -58,8 +58,8 @@ function App() {
         ingredientsRender = {ingredientsRender}
         mealplanRender = {mealplanRender}
       />
-      {isShownRecipes && <Recipes show = {closeAll}/>}
       {isShownSignin && <SignInForm show = {closeAll}/>}
+      {isShownRecipes && <Recipes show = {closeAll}/>}
       {isShownIngredients && <Ingredients show = {closeAll}/>}
       {isShownMealplan && <MealPlan show = {closeAll}/>}
       <Footer/>

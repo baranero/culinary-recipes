@@ -1,5 +1,5 @@
-import { logDOM } from "@testing-library/react"
 import React from "react"
+import './Recipes.css'
 
 export default function Recipes(props) {
 

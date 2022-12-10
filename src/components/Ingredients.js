@@ -2,23 +2,6 @@ import React from "react";
 
 export default function Ingredients(props) {
 
-    const [ingredientsSubstitutes, setIngredientsSubstitutes] = React.useState(
-        {
-            ingredient: ""
-        })
-
-    function handleChange(event) {
-        setIngredientsSubstitutes(prevSate => {
-            const {name, value} = event.target
-            return {
-                ...prevSate,
-                [name]: value,
-        }})}
-
-    function handleSubmit(event) {
-        event.preventDefault()
-    }
-
     const generateMeal = () => {
         setShow(true)
         setTimeout(() => {
@@ -50,14 +33,10 @@ export default function Ingredients(props) {
                 })
             }}, [show])
 
-
-
     return (
         <div className="recipe-container">
             <button onClick={props.show} className="end-button">x</button>
             <h2 className="recipe-text">Random meal</h2>
-            <form onSubmit={handleSubmit}>
-            </form>
             <button className="recipe-button" onClick={generateMeal}>Find your meal!</button>
             <div>
             {error && (

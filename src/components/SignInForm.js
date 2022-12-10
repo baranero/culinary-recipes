@@ -5,12 +5,13 @@ export default function SignInForm(props) {
         const [userData, setUserData] = React.useState(
             {
                 username: "",
-                firstName: "",
-                lastName: "",
-                email: ""
+                password: "",
             })
 
             console.log(userData);
+
+        const randomLogin = 'dwight-schrute'
+        const randomPassword = 'beetsfarm123'
     
         function handleChange(event) {
             setUserData(prevSate => {
@@ -24,44 +25,20 @@ export default function SignInForm(props) {
             event.preventDefault()
         }
     
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'X-RapidAPI-Key': 'xxx',
-                'X-RapidAHost': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-            },
-            body: `{"username":${userData.username},firstName":${userData.firstName},"lastName":${userData.lastName},"email":${userData.email}}`
-        };
-    
-        const [data, setData] = React.useState(null)
-        const [error, setError] = React.useState(null)
         const [show, setShow] = React.useState(false)
     
         React.useEffect(() => {
             if (show === true) {
-                fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/users/connect', options)
-                    .then((response) => {
-                        if (!response.ok) {
-                            throw new Error(
-                                `This is an HTTP error: The status is ${response.status}`
-                            )}
-                        return response.json()
-                    })
-                    .then((actualData) => {
-                        setData(actualData)
-                        setError(null)
-                        console.log(actualData);
-                    })
-                    .catch((err) => {
-                        setError(err.message)
-                        setData(null)
-                        signalWrongPassword()
-                    })
+                if (userData.username === randomLogin && userData.password === randomPassword) {
+                    props.show()
+                } else {
+                    signalWrongPassword()
+                    
+                }
                 }}, [show])
 
                 function signalWrongPassword() {
-                    for (let i = 0; i < 4; i++) {
+                    for (let i = 0; i < 2; i++) {
                     let wrongData = document.getElementsByClassName("recipe-input")[i];
                     if (true){
                       wrongData.classList.toggle("recipe-input-error")
@@ -80,62 +57,20 @@ export default function SignInForm(props) {
                         onChange={handleChange}
                         name="username"
                         value={userData.username}
+                        autoComplete='username'
                     />
                     <input
-                        placeholder="First name"
+                        placeholder="Password"
                         className="recipe-input"
-                        type="text"
+                        type="password"
                         onChange={handleChange}
-                        name="firstName"
-                        value={userData.firstName}
-                    />
-                    <input
-                        placeholder="Last name"
-                        className="recipe-input"
-                        type="text"
-                        onChange={handleChange}
-                        name="lastName"
-                        value={userData.lastName}
-                    />
-                    <input
-                        placeholder="Email"
-                        className="recipe-input"
-                        type="email"
-                        onChange={handleChange}
-                        name="email"
-                        value={userData.email}
+                        name="password"
+                        value={userData.password}
+                        autoComplete='current-password'
                     />
                 </form>
                 <button className="recipe-button" onClick={() => setShow(true)}>Sign in</button>
-                <div>
-                {error && (
-                    <div>
-                        {`There is a problem fetching the post data - ${error}`}
-                    </div>
-                )}
-                {data && data.map((data) => (  
-                    <div className="rendered-recipe" key={data.id}>
-                        <h3 className="rendered-recipe-title">{data.title}</h3>
-                        <div className="rendered-recipe-content">
-                            <img className="rendered-recipe-image" src={data.image} alt={data.title}/>
-                            <div>
-                                <div key={data.id} className="rendered-recipe-ingredients-list">
-                                    <h4>Used ingredients</h4>
-                                    {data.usedIngredients && data.usedIngredients.map((data) => (
-                                        <ul key={data.id}><li className="rendered-recipe-ingredients-description">{data.original}</li></ul>
-                                    
-                                    ))}
-                                </div>
-                                <div  className="rendered-recipe-ingredients-list">
-                                    <h4>Missed ingredients</h4>
-                                    {data.missedIngredients && data.missedIngredients.map((datas) => (
-                                        <ul key={datas.id}><li  className="rendered-recipe-ingredients-description">{datas.original}</li></ul>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-                </div>
+                <h3>Username: dwight-schrute</h3>
+                <h3>Password: beetsfarm123</h3>
             </div>
         )}
