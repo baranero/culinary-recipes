@@ -6,6 +6,19 @@
   justify-content: space-between;
 }
 
+header {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+  width: 200px;
+  background-color: rgba(184, 177, 156, 0.5);
+  color: rgb(0, 0, 0);
+  box-shadow: 1px 1px 22px 0 gray;
+}
+
 .logo {
   height: 80px;
   margin-bottom: 10px;
@@ -47,6 +60,23 @@ nav {
   display: none;
 }
 
+.active{
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  z-index: 40;
+  box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+  /* padding: 0 7%; */
+}
+
+
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
   .logo-part {
@@ -58,7 +88,6 @@ nav {
 
   .navbar {
     display: grid;
-    display: none;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
@@ -70,5 +99,34 @@ nav {
     display: flex;
     margin-right: 30px;
     height: 50px;
+    width: 50px;
+  }
+
+  .active {
+    height: 7rem;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    transition: 0.3s linear;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    z-index: 40;
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+    /* padding: 0 7%; */
+  }
+
+  .hidden{
+    height: 4rem;
+    width: 100%;
+    z-index: 40;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
+    position: fixed;
+    top: -80px;
+    transition: 0.3s linear;
+  
   }
 }

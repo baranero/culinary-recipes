@@ -8,7 +8,6 @@
   justify-content: center;
   background-color: rgba(193, 186, 176, 0.8);
   box-shadow: 1px 1px 22px 0 gray;
-  width: 100&;
   border-radius: 20px;
 }
 
@@ -150,8 +149,12 @@ form {
 
       .recipe-container {
         display: flex;
+        position: relative;
+        top: 45rem;
         flex-direction: column;
         margin: 0;
-        padding: 70px;
+        padding: 60px;
       }
+
+
   }

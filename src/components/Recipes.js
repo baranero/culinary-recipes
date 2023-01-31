@@ -81,7 +81,7 @@ export default function Recipes(props) {
                 <div className="rendered-recipe">
                 <h2>{data.strMeal}</h2>
                 <div className="rendered-recipe-content">
-                    <img className="rendered-recipe-image" src={data.strMealThumb} />
+                    <img className="rendered-recipe-image" src={data.strMealThumb} alt='meal' />
                     <ul>
                         <li className="rendered-recipe-ingredients-description">{data.strIngredient1}</li>
                         <li className="rendered-recipe-ingredients-description">{data.strIngredient2}</li>

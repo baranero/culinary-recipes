@@ -33,19 +33,6 @@ body {
   
 }
 
-header {
-  display: flex;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  flex-direction: column;
-  width: 200px;
-  background-color: rgba(184, 177, 156, 0.5);
-  color: rgb(0, 0, 0);
-  box-shadow: 1px 1px 22px 0 gray;
-}
-
 h1 {
   letter-spacing: 0.1em;
 }
@@ -158,10 +145,6 @@ a {
     position: relative;
   }
 
-
-
-
-
   header {
     height: 100px;
     width: 100%;
@@ -173,13 +156,10 @@ a {
     align-items: center;
   }
 
-
-
   .pic-authors {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: -50%;
+    position: fixed;
+    bottom: 0px;
+    z-index: -1;
   }
 
   h1 {
@@ -192,8 +172,6 @@ a {
     width: 90%;
     display: flex;
   }
-
-
 
   .recipe-input {
     width: 170%;
