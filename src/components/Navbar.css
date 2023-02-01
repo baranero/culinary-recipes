@@ -80,34 +80,54 @@ nav {
 @media only screen and (max-width: 620px) {
   /* For mobile phones: */
   .logo-part {
+    display: flex;
     flex-direction: row;
     padding: 0;
-    width: 140px;
-    margin: 5px;
+    justify-content: space-between;
+    width: 100%;
+    margin: 15px;
+
   }
+
 
   .navbar {
     display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
+
   .navbar-button {
-    padding: 15px;
+    width: 100%;
+    margin: 0;
   }
 
-  .hamburger-menu {
-    display: flex;
-    margin-right: 30px;
+  .hamburger-img {
+    margin-right: 15px;
     height: 50px;
     width: 50px;
   }
 
-  .active {
-    height: 7rem;
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
     width: 100%;
-    position: fixed;
-    top: 0px;
-    transition: 0.3s linear;
+    margin: 11rem auto 0;
+    height: 40px;
+  }
+
+  .active {
+    height: 8rem;
+    width: 100%;
+    transition: 0.1s linear;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
@@ -115,11 +135,16 @@ nav {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     z-index: 40;
     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, .08);
-    /* padding: 0 7%; */
+  }
+
+  .active-dropdown {
+    margin: 0;
+    padding-bottom: 7rem;
+    height: 15rem;
   }
 
   .hidden{
-    height: 4rem;
+    height: 3rem;
     width: 100%;
     z-index: 40;
     border-bottom: 1px solid rgba(0, 0, 0, .1);

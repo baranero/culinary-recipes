@@ -9,8 +9,10 @@ export default function Navbar(props) {
     const controlNavbar = () => {
         if (window.scrollY > 250 ) {
             setShow(true)
+            setShowMenu(false)
         }else{
           setShow(false)
+          setShowMenu(false)
         }
     }
   
@@ -26,22 +28,25 @@ export default function Navbar(props) {
     }
 
     return (
-        <header className={`active ${show && 'hidden'}`}>
+        <header className={`active ${show && 'hidden'} ${showMenu && 'active-dropdown'}`}>
             <div className="logo-part">
-                <img className="logo" src={process.env.PUBLIC_URL + '/images/logo-chef-hat.png'} alt='logo' />
-                <h1>Eat IT</h1>
+                <div>
+                    <img className="logo" src={process.env.PUBLIC_URL + '/images/logo-chef-hat.png'} alt='logo' />
+                    <h1>Eat IT</h1>
+                </div>
+                <div className="hamburger-menu">
+                    <img className="hamburger-img" onClick={showHamburgeMenuList} src={process.env.PUBLIC_URL + '/images/hamburger.png'} alt='hamburger' />
+                </div>
             </div>
             <nav className="navbar">
                 <button className="navbar-button" onClick={props.recipeRender}>Recipes</button>
                 <button className="navbar-button" onClick={props.ingredientsRender}>Random recipe</button>
             </nav>
-            <div className="hamburger-menu">
-                <img onClick={showHamburgeMenuList} src={process.env.PUBLIC_URL + '/images/hamburger.png'} alt='hamburger' />
-                <nav className="navbar">
+
+            { showMenu && <nav className="navbar-hamburger">
                     <button className="navbar-button" onClick={props.recipeRender}>Recipes</button>
                     <button className="navbar-button" onClick={props.ingredientsRender}>Random recipe</button>
-                </nav>
-            </div>
+                </nav>}
         </header>
     )
 }

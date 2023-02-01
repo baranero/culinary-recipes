@@ -70,7 +70,7 @@ export default function Recipes(props) {
                 />
             </form>
             <button className="recipe-button" onClick={generateMeal}>Find your meal!</button>
-            <div>
+            <div className="recipe-map">
             {error && (
                 <div>
                     {`There is a problem fetching the post data - ${error}`}
