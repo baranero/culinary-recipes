@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/culinary-recipes/static/css/main.afc28177.css",
-    "main.js": "/culinary-recipes/static/js/main.47ad82e0.js",
+    "main.css": "/culinary-recipes/static/css/main.aafc1867.css",
+    "main.js": "/culinary-recipes/static/js/main.ea822e81.js",
     "static/js/787.58452c34.chunk.js": "/culinary-recipes/static/js/787.58452c34.chunk.js",
     "static/media/background.jpg": "/culinary-recipes/static/media/background.55c0f67dec4371e21498.jpg",
     "index.html": "/culinary-recipes/index.html",
-    "main.afc28177.css.map": "/culinary-recipes/static/css/main.afc28177.css.map",
-    "main.47ad82e0.js.map": "/culinary-recipes/static/js/main.47ad82e0.js.map",
+    "main.aafc1867.css.map": "/culinary-recipes/static/css/main.aafc1867.css.map",
+    "main.ea822e81.js.map": "/culinary-recipes/static/js/main.ea822e81.js.map",
     "787.58452c34.chunk.js.map": "/culinary-recipes/static/js/787.58452c34.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.afc28177.css",
-    "static/js/main.47ad82e0.js"
+    "static/css/main.aafc1867.css",
+    "static/js/main.ea822e81.js"
   ]
 }
