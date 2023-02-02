@@ -149,23 +149,32 @@ form {
         position: relative;
         justify-content: center;
         align-items: center;
+        margin: 0 0 20px 0;
+      }
 
+      .rendered-recipe-content {
+        display: flex;
+        flex-direction: column;
       }
     
-      .rendered-recipe-content {
-
-      }
-
       .whole-page {
-        width: 90%;
+        width: 80%;
+        margin: 0;
       }
 
       .recipe-container {
         display: flex;
         top: 7rem;
+        left: 2.5rem;
         flex-direction: column;
-        width: 100%;
+        width: 290px;
+        margin-top: 40px;
+        padding: 20px 10px;
+        font-size: 0.75rem;
+      }
 
+      .recipe-button {
+        width: 250px;
       }
 
       .recipe-container-moved {
@@ -173,11 +182,11 @@ form {
       }
 
       .recipe-input {
-        width: 300px;
+        width: 250px;
       }
 
       li, p {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
   }

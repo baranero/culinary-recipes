@@ -132,7 +132,6 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 620px;
     margin: 0 auto;
     position: relative;
   }
