@@ -4,15 +4,15 @@ import './Navbar.css'
 export default function Navbar(props) {
 
     const [show, setShow] = useState(false)
-    const [showMenu, setShowMenu] = useState(false)
+
 
     const controlNavbar = () => {
         if (window.scrollY > 250 ) {
             setShow(true)
-            setShowMenu(false)
+            props.setShowMenu(false)
         }else{
           setShow(false)
-          setShowMenu(false)
+          props.setShowMenu(false)
         }
     }
   
@@ -24,11 +24,11 @@ export default function Navbar(props) {
     }, [])
 
     function showHamburgeMenuList() {
-        setShowMenu(prevState => !prevState)
+        props.setShowMenu(prevState => !prevState)
     }
 
     return (
-        <header className={`active ${show && 'hidden'} ${showMenu && 'active-dropdown'}`}>
+        <header className={`active ${show && 'hidden'} ${props.showMenu && 'active-dropdown'}`}>
             <div className="logo-part">
                 <div>
                     <img className="logo" src={process.env.PUBLIC_URL + '/images/logo-chef-hat.png'} alt='logo' />
@@ -43,7 +43,7 @@ export default function Navbar(props) {
                 <button className="navbar-button" onClick={props.ingredientsRender}>Random recipe</button>
             </nav>
 
-            { showMenu && <nav className="navbar-hamburger">
+            { props.showMenu && <nav className="navbar-hamburger">
                     <button className="navbar-button" onClick={props.recipeRender}>Recipes</button>
                     <button className="navbar-button" onClick={props.ingredientsRender}>Random recipe</button>
                 </nav>}

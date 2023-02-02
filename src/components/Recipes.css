@@ -137,6 +137,10 @@ form {
     text-align: left;
   }
 
+  .hidden-ingredients {
+    display: none;
+  }
+
   @media only screen and (max-width: 620px) {
     /* For mobile phones: */
     .rendered-recipe {
@@ -145,6 +149,11 @@ form {
         position: relative;
         justify-content: center;
         align-items: center;
+
+      }
+    
+      .rendered-recipe-content {
+
       }
 
       .whole-page {
@@ -153,17 +162,22 @@ form {
 
       .recipe-container {
         display: flex;
-        top: 0;
+        top: 7rem;
         flex-direction: column;
         width: 100%;
+
+      }
+
+      .recipe-container-moved {
+        top: 14rem;
       }
 
       .recipe-input {
         width: 300px;
       }
 
-      .recipe-map {
-        transform: translateY(3300px);
+      li, p {
+        font-size: 1.2rem;
       }
 
   }

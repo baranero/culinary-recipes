@@ -34,7 +34,7 @@ export default function Ingredients(props) {
             }}, [show])
 
     return (
-        <div className="recipe-container">
+        <div className={`recipe-container ${props.showMenu && 'recipe-container-moved'}`}>
             <button onClick={props.show} className="end-button">x</button>
             <h2 className="recipe-text">Random meal</h2>
             <button className="recipe-button" onClick={generateMeal}>Find your meal!</button>
@@ -51,13 +51,30 @@ export default function Ingredients(props) {
                 <div className="rendered-recipe">
                 <h2>{data.strMeal}</h2>
                 <div className="rendered-recipe-content">
-                    <img className="rendered-recipe-image" src={data.strMealThumb} />
+                    <img className="rendered-recipe-image" src={data.strMealThumb} alt='recipe' />
                     <ul>
-                        <li className="rendered-recipe-ingredients-description">{data.strIngredient1}</li>
-                        <li className="rendered-recipe-ingredients-description">{data.strIngredient2}</li>
-                        <li className="rendered-recipe-ingredients-description">{data.strIngredient3}</li>
-                        <li className="rendered-recipe-ingredients-description">{data.strIngredient4}</li>
-                        <li className="rendered-recipe-ingredients-description">{data.strIngredient5}</li>
+                    <p><b>Ingredients</b></p>  
+
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient1 && 'hidden-ingredients'}`}>{data.strIngredient1}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient2 && 'hidden-ingredients'}`}>{data.strIngredient2}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient3 && 'hidden-ingredients'}`}>{data.strIngredient3}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient4 && 'hidden-ingredients'}`}>{data.strIngredient4}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient5 && 'hidden-ingredients'}`}>{data.strIngredient5}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient6 && 'hidden-ingredients'}`}>{data.strIngredient6}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient7 && 'hidden-ingredients'}`}>{data.strIngredient7}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient8 && 'hidden-ingredients'}`}>{data.strIngredient8}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient9 && 'hidden-ingredients'}`}>{data.strIngredient9}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient10 && 'hidden-ingredients'}`}>{data.strIngredient10}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient11 && 'hidden-ingredients'}`}>{data.strIngredient11}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient12 && 'hidden-ingredients'}`}>{data.strIngredient12}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient13 && 'hidden-ingredients'}`}>{data.strIngredient13}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient14 && 'hidden-ingredients'}`}>{data.strIngredient14}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient15 && 'hidden-ingredients'}`}>{data.strIngredient15}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient16 && 'hidden-ingredients'}`}>{data.strIngredient16}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient17 && 'hidden-ingredients'}`}>{data.strIngredient17}</li>
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient18 && 'hidden-ingredients'}`}>{data.strIngredient18}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient19 && 'hidden-ingredients'}`}>{data.strIngredient19}</li> 
+                        <li className={`rendered-recipe-ingredients-description ${!data.strIngredient20 && 'hidden-ingredients'}`}>{data.strIngredient20}</li> 
                     </ul>
                 </div>
                 <p>{data.strInstructions}</p>

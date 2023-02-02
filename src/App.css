@@ -5,8 +5,6 @@
 }
 
 html {
-  height: 100%;
-  width: 100%;
   background-image: url("..//public/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,8 +15,6 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  height: 100%;
-width: 100%;
   margin-left: 200px;
 }
 
@@ -28,7 +24,6 @@ width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
   
 }
@@ -49,17 +44,14 @@ p {
   margin-top: 20px;
 }
 
-
-
-
-
 .pic-authors {
   display: flex;
   flex-direction: column;
   margin-top: 15px;
   width: 100%;
-  position: absolute;
   bottom: 0;
+  position: fixed;
+  z-index: -1;
   font-size: 10px;
   padding: 0;
 }
@@ -159,6 +151,7 @@ a {
   .pic-authors {
     position: fixed;
     bottom: 0px;
+    left: 0;
     z-index: -1;
   }
 
@@ -166,12 +159,6 @@ a {
     font-size: 20px;
   }
 
-  .recipe-container {
-    margin: auto;
-
-    width: 90%;
-    display: flex;
-  }
 
   .recipe-input {
     width: 170%;
